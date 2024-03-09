@@ -1,11 +1,12 @@
 import numpy as np
+import streamlit as st
 from keybert import KeyBERT
 from sentence_transformers import SentenceTransformer, util
 from sklearn.metrics.pairwise import cosine_similarity
 
 kw_model = KeyBERT()
 
-
+@st.cache_data
 def calculate_similarity(array1, array2, model_name="clips/mfaq"):
     model = SentenceTransformer(model_name)
 
